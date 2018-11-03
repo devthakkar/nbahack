@@ -14,6 +14,14 @@ class User():
         return self.wallet
     def get_stocks(self):
         return self.stocks
+    def set_name(self, name):
+        self.name = name
+    def set_wallet(self, amount):
+        self.wallet = amount;
+    def updateStock(self, player, amount):
+        self.stocks[player.name] = amount
+    
+    
 
 
 
