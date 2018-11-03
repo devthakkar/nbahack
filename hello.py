@@ -4,7 +4,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    player_info = commonplayerinfo.CommonPlayerInfo(player_id=2544)
-    lebron_dict = player_info.common_player_info.get_dict()
-    return "Name:" + lebron_dict.get('data')[0][3] + " , Age: " + lebron_dict.get('data')[0][13]
+    return "Welcome! Here are your investment options:"
     
+
+@app.route('/LebronJames')
+
+@app.route('/StephenCurry')
+
+@app.route('/Giannis')
+
+@app.route('/AnthonyDavis')
+
+@app.route('/Kevin Durant')
