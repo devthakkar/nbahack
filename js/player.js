@@ -1,15 +1,32 @@
 $(document).ready(function(){
-    var player = "Kevin Durant";
+    console.log("hello");
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+    
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+    
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+            }
+        }
+    };
+    
+    var player = getUrlParameter('playerName');
+    var nameArr = player.split(" ");
     $("#player").text(player);
-    $("#player-img").attr('src','./img/player-img/kevin-durant.png');
+    $("#player-img").attr('src','./img/player-img/'+nameArr[0].toLowerCase()+'-'+nameArr[1].toLowerCase()+'.png');
     var ctx = document.getElementById("myChart");
             var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                    labels: ["10/24", "10/26", "10/28", "10/30", "11/1", "11/3"], //TODO: Add dates here 
                     datasets: [{
                         label: 'Stock Value',
-                        data: [12, 19, 3, 5, 2, 3],
+                        data: [12, 19, 3, 5, 2, 3], //TODO: Add array here 
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
