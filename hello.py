@@ -73,7 +73,7 @@ def hello_world():
     # return "Name:" + lebron_dict.get('data')[0][3] + " , Age: " + lebron_dict.get('data')[0][13]
 
 @app.route('/player', methods=['GET'])
-def get_player(player_name):
+def get)player():
     return 'hello' 
     
 @app.route('/', methods=['GET'], defaults={'path': 'index.html'})
