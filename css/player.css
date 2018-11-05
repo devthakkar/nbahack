@@ -3,3 +3,7 @@
     height: 200px;
     margin-bottom: 17.5px;
 }
+.button:hover {
+background-color: #333333;
+color: white;
+}

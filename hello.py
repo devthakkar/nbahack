@@ -29,7 +29,6 @@ class Player(object):
         self.performances.append(playerdashboardbylastngames.PlayerDashboardByLastNGames(self.id, 0, "Base", 0, 0, "N", "PerGame", 0, "N", "N", "2016-17", "Regular Season").last5_player_dashboard.get_dict().get('data')[0][28])
         self.performances.append(playerdashboardbylastngames.PlayerDashboardByLastNGames(self.id, 0, "Base", 0, 0, "N", "PerGame", 0, "N", "N", "2017-18", "Regular Season").last5_player_dashboard.get_dict().get('data')[0][28])
         self.performances.append(playerdashboardbylastngames.PlayerDashboardByLastNGames(self.id, 0, "Base", 0, 0, "N", "PerGame", 0, "N", "N", "2018-19", "Regular Season").last5_player_dashboard.get_dict().get('data')[0][28])
-        print(len(self.performances))
 
     def printTester(self):
         for item in self.performances:
@@ -39,15 +38,11 @@ class Player(object):
         return self.name
 
     def returnValues(self):
-        print(len(self.performances))
         return {"Values": self.performances, "Number": self.number, "Height": self.height, "Weight": self.weight, "Team": self.team, "Age": self.age}
 
 def nameToId(player_name):
     return players.find_players_by_full_name(player_name)[0].get('id')
 
-@app.route('/test')
-def hello_world():
-    return "Welcome! Here are your investment options:"
     
 
 # @app.route('/LebronJames')
@@ -75,6 +70,12 @@ def hello_world():
     # lebron_dict = player_info.common_player_info.get_dict()
     # return "Name:" + lebron_dict.get('data')[0][3] + " , Age: " + lebron_dict.get('data')[0][13]
 
+@app.route('/allplayers', methods=['GET'])
+def get_all_players():
+    return jsonify(players.get_players())
+
+
+
 @app.route('/player', methods=['POST'])
 def get_player():
     player_name = request.form.get('name')
@@ -82,7 +83,7 @@ def get_player():
     id = nameToId(player_name)
     player = Player(id)
     player.get5Performances()
-    print(player.returnValues())
+    
     return jsonify(player.returnValues())
     
 @app.route('/', methods=['GET'], defaults={'path': 'index.html'})

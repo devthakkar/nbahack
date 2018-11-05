@@ -29,10 +29,10 @@ $(document).ready(function(){
         var myChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ["10/24", "10/26", "10/28", "10/30", "11/1"], //TODO: Add dates here 
+                labels: ["10/24", "10/26", "10/28", "10/30", "11/1"], 
                 datasets: [{
                     label: 'Stock Value',
-                    data: performances, //TODO: Add array here 
+                    data: performances, 
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -62,5 +62,5 @@ $(document).ready(function(){
                 }
             }
         });
-    }); // GET request
+    }); 
 });
